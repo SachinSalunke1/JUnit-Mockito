@@ -1,0 +1,15 @@
+package com.startech.mockito.annotation.spies;
+
+public class BookService {
+
+	public Book findBook(int bookId) {
+		throw new RuntimeException("Method not implemeted..") ;
+	}
+
+	public double getAppliedDiscount(Book book, double discountedRate) {
+		double price = book.getPrice();
+		double newPrice = price - (price * discountedRate / 100);
+		return newPrice;
+	}
+
+}

@@ -1,0 +1,75 @@
+1673162809821	Delete element
+1673162975097	Delete element
+1673170766820	Rename type 'FakeTest'
+1673172189963	Move compilation unit
+1673172203959	Move compilation unit
+1673172212677	Move compilation unit
+1673172225590	Rename type 'BookRepositoryImpl'
+1673172245104	Rename type 'EmailRepositoryImpl'
+1673173538293	Delete element
+1673173548466	Delete element
+1673173609994	Delete element
+1673174033954	Rename package 'com.startech.fake'
+1673174116249	Delete element
+1673174191397	Move compilation unit
+1673174253911	Move compilation unit
+1673174309886	Move compilation unit
+1673174317093	Move compilation unit
+1673174322139	Delete element
+1673174326818	Delete element
+1673174488896	Delete element
+1673174550976	Delete element
+1673174574058	Rename type 'BookServiceImpl'
+1673174865682	Move compilation unit
+1673174871041	Delete element
+1673174882504	Copy compilation units
+1673174921520	Delete element
+1673175323564	Delete element
+1673175436747	Delete elements
+1673175689153	Copy compilation units
+1673175870368	Copy compilation unit
+1673176281622	Rename type 'DummyEmailRepositoryImpl'
+1673176564953	Copy compilation units
+1673197012437	Copy compilation units
+1673198410206	Copy compilation units
+1673198478431	Copy compilation units
+1673258939484	Delete element
+1673267517561	Rename type 'FakeBookRepositoryImpl'
+1673274215272	Rename type 'DummyTestWithoutMockito'
+1673274231402	Rename type 'FakeTestWithoutMockito'
+1673274257696	Rename type 'MockTestWithoutMockito'
+1673275116822	Rename type 'StubTestWithoutMockito'
+1673275135736	Rename type 'SpyTestWithoutMockito'
+1673282716260	Copy compilation units
+1673284668479	Copy compilation units
+1673284750035	Copy compilation unit
+1673328769993	Copy compilation units
+1673330975030	Rename type 'BookServiceTest'
+1673330981699	Delete element
+1673331039167	Rename type 'BookServiceStubbingTest'
+1673336969421	Rename type 'StbbingTest_DoReturn_When'
+1673336987446	Rename type 'StubbingTestWhen_ThenReturn'
+1673337857374	Rename type 'StubbingTest_When_ThenReturn'
+1673337869871	Delete element
+1673338557989	Delete element
+1673342103621	Copy compilation units
+1673342343724	Copy compilation unit
+1673342370478	Rename type 'StubbingTestMethods'
+1673343679599	Copy compilation unit
+1673352762374	Copy compilation units
+1673353352163	Copy compilation unit
+1673353380114	Rename type 'StubbingTestMethods'
+1673354074054	Copy compilation unit
+1673369346943	Copy compilation units
+1673370855862	Copy compilation units
+1673398546672	Copy compilation units
+1673398561795	Copy compilation unit
+1673398594991	Rename type 'StubbingTestMethods'
+1673398630007	Rename package 'com.startech.mockito.annotation.behaviordrivendevelopment'
+1673398652749	Rename package 'com.startech.mockito.annotation.behaviordrivendevelopment.test'
+1673398939598	Copy compilation units
+1673401942298	Copy compilation units
+1673410224999	Rename package 'com.startech.mockito.annotation.bdd.exceptionhandling'
+1673410246567	Copy compilation units
+1673410301154	Copy compilation unit
+1673410333436	Rename type 'BehaviorVerifcationTestMethods'

@@ -1,0 +1,13 @@
+package com.startech.mockito.annotation.spies;
+
+public class BookService {
+
+	public Book findBook(int bookId) {
+		return null;
+	}
+
+	public int getAppliedDiscount(Book book, double discountedRate) {
+		return 0;
+	}
+
+}

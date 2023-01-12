@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\Eclipse Projects\JUnit and Mockito Testing\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1589545929.index
+1096515652.index
+2597372055.index
+103664102.index
+2875365528.index
+4060452975.index
+546642953.index

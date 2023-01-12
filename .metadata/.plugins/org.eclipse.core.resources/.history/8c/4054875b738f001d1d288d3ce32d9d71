@@ -1,0 +1,16 @@
+package com.startech.testdoubles.stub;
+
+import java.util.List;
+
+import com.startech.testdouble.stub.Book;
+import com.startech.testdouble.stub.BookRepository;
+
+public class StubBookRepositoryImpl implements BookRepository{
+
+	@Override
+	public List<Book> findNewBooks(int days) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

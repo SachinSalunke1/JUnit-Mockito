@@ -1,0 +1,29 @@
+package com.startech.testdoubles.mock;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.testdouble.mock.Book;
+import com.startech.testdouble.mock.BookService;
+
+public class MockTestWithoutMockito {
+
+	@Test
+	public void demoMock() {
+		MockBookRepositoryImpl bookRepositoryMock = new MockBookRepositoryImpl();
+		BookService bookService = new BookService(bookRepositoryMock);
+
+		Book book1 = new Book(1001, "Spring", 3000.0, LocalDate.now());
+		Book book2 = new Book(1002, "Hibernate", 2500.0, LocalDate.now());
+
+		bookService.save(book1);
+		
+		bookService.save(book2);
+		
+		bookRepositoryMock.verify(book2, 1);
+		//bookRepositoryMock.verify(book2, 1);
+
+	}
+
+}

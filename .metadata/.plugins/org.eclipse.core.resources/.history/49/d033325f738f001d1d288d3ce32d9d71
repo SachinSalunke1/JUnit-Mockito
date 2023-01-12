@@ -1,0 +1,23 @@
+package com.startech.testdoubles.stub;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.startech.testdouble.stub.Book;
+import com.startech.testdouble.stub.BookRepository;
+
+public class StubBookRepositoryImpl implements BookRepository{
+
+	@Override
+	public List<Book> findNewBooks(int days) {
+		List<Book> newBooks = new ArrayList<>();
+		newBooks.add(new Book(1001, "Spring", 3000.0, LocalDate.now()));
+		newBooks.add(new Book(1002, "Hibernate", 2500.0, LocalDate.now()));
+		
+		new Book(1001, "Spring", 3000.0, LocalDate.now()));
+		bookService.save(new Book(1002, "Hibernate", 2500.0, LocalDate.now())
+		return null;
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.startech.testdoubles.spy;
+
+import com.startech.testdouble.spy.Book;
+import com.startech.testdouble.spy.BookRepository;
+
+public class SpyBookRepositoryImpl implements BookRepository {
+
+	@Override
+	public void save(Book book) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

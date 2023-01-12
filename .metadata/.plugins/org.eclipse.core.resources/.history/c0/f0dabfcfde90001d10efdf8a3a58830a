@@ -1,0 +1,105 @@
+package com.startech.mockito.annotation.behaviorverification.test;
+
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.behaviorverification.Book;
+import com.startech.mockito.annotation.behaviorverification.BookRepository;
+import com.startech.mockito.annotation.behaviorverification.BookService;
+import com.startech.mockito.annotation.behaviorverification.BookRequest;
+
+@ExtendWith(MockitoExtension.class)
+public class BehaviorVerifcationTestMethods {
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@Test
+	public void test_addBook() {
+		Book book = new Book(101, "Spring", 3500, LocalDate.now());
+		bookService.addBook(book);
+		verify(bookRepository).save(book);
+	}
+
+	@Test
+	public void test_saveVoidMethodWithBookRequestWithGreaterPrice() {
+		BookRequest bookRequest = new BookRequest("Mockito", 599, LocalDate.now());
+		Book book = new Book(101, "Mockito", 599, LocalDate.now());
+		bookService.addBook(bookRequest);
+		verify(bookRepository, times(0)).save(book);
+	}
+
+	@Test
+	public void test_saveVoidMethodWithBookRequestWithGreaterPrice1() {
+		BookRequest bookRequest = new BookRequest("Mockito", 699, LocalDate.now());
+		Book book = new Book(101, "Mockito", 699, LocalDate.now());
+		bookService.addBook(bookRequest);
+		bookService.addBook(bookRequest);
+		verify(bookRepository, times(2)).save(book);
+	}
+
+	@Test
+	public void test_saveVoidMethodWithBookRequestWithGreaterPrice2() {
+		BookRequest bookRequest = new BookRequest("Mockito", 599, LocalDate.now());
+		Book book = new Book(101, "Mockito", 599, LocalDate.now());
+		bookService.addBook(bookRequest);
+		verify(bookRepository, never()).save(book);
+	}
+
+	@Test
+	public void test_saveVoidMethodWithBookRequestWithGreaterPrice3() {
+		BookRequest bookRequest = new BookRequest("Mockito", 699, LocalDate.now());
+		Book book = new Book(101, "Mockito", 699, LocalDate.now());
+		bookService.addBook(bookRequest);
+		bookService.addBook(bookRequest);
+		//verify(bookRepository, times(2)).save(book);
+		verify(bookRepository, atLeast(3)).save(book);
+	}
+	@Test
+	public void test_updatePrice() {
+		bookService.updatePrice(0, 649);
+		verifyNoInteractions(bookRepository);
+	}
+
+	@Test
+	public void test_updatePrice2() {
+		Book book = new Book(101, "HIbernate", 599, LocalDate.now());
+		when(bookRepository.findBookById(101)).thenReturn(book);
+		bookService.updatePrice(101, 599);
+		verify(bookRepository).findBookById(101);
+		verify(bookRepository).save(book);
+		verifyNoMoreInteractions(bookRepository);
+	}
+
+	@Test
+	public void test_updatePrice3() {
+		Book book = new Book(101, "HIbernate", 599, LocalDate.now());
+		when(bookRepository.findBookById(101)).thenReturn(book);
+		bookService.updatePrice(101, 599);
+
+		InOrder inOrder = Mockito.inOrder(bookRepository);
+		//inOrder.verify(bookRepository).save(book);
+		inOrder.verify(bookRepository).findBookById(101);
+		inOrder.verify(bookRepository).save(book);
+		
+	}
+}

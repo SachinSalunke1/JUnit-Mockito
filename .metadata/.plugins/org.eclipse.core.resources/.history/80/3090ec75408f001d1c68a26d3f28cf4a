@@ -1,0 +1,31 @@
+package com.startech.testdoubles.dummy;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.entity.Author;
+import com.startech.entity.Book;
+import com.startech.repository.BookRepository;
+import com.startech.service.BookService;
+import com.startech.service.EmailService;
+import com.startech.testdouble.fake.BookServiceImpl;
+import com.startech.testdoubles.fake.FakeBookRepositoryImpl;
+
+public class DummyTestWithoutMockito {
+	
+	@Test
+	public void demoDummy() {
+		BookRepository bookRepository = new FakeBookRepositoryImpl();
+		EmailService emailService = new DummyEmailRepositoryImpl();
+		BookService bookService = new BookServiceImpl(bookRepository,emailService);
+
+		bookService.save(new Book(1001, "Spring", 3000.0, new Author(101, "ABC", "Good Book"), LocalDate.now()));
+		bookService.save(new Book(1002, "Hibernate", 2500.0, new Author(102, "XYZ", "Nice Book"), LocalDate.now()));
+		
+		assertEquals(2, bookService.findNumberOfBooks());
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.startech.mockito.annotation.stubbing;
+
+import java.util.List;
+
+public interface BookRepository {
+
+	List<Book> findNewBooks(int days);
+
+	int findBookByBookId(int bookId);
+}

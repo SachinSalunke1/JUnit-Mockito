@@ -1,0 +1,8 @@
+package com.startech.mockito.annotation.argumentmatchers;
+
+public interface BookRepository {
+	
+	void save(Book book);
+
+	Book findBookById(int bookId);
+}

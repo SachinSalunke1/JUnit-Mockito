@@ -1,0 +1,18 @@
+package com.startech.testdouble.stub;
+
+import java.util.Collection;
+import java.util.List;
+
+public class BookService {
+
+	private BookRepository bookRepository;
+
+	public BookService(BookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+
+	public List<Book> getNewBooksWithAppliedDiscount(int discountRate, int days) {
+		List<Book> newBooks = bookRepository.findNewBooks(days);
+
+	}
+}

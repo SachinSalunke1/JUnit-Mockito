@@ -1,0 +1,25 @@
+package com.startech.testdoubles.spy;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.testdouble.fake.Book;
+import com.startech.testdouble.spy.BookRepository;
+import com.startech.testdouble.spy.BookService;
+
+public class SpyTestWithoutMockito {
+
+	@Test
+	public void demoSpy() {
+		BookRepository bookRepository = new SpyBookRepositoryImpl();
+		BookService bookService = new BookService(bookRepository);
+
+		Book book1 = new Book(1001, "Spring", 3000.0, LocalDate.now());
+		Book book2 = new Book(1002, "Hibernate", 2500.0, LocalDate.now());
+
+		bookService.save(book1);
+		bookService.save(book2);
+	}
+
+}

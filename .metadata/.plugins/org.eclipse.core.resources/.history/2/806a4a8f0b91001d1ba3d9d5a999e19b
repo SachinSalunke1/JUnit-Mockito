@@ -1,0 +1,12 @@
+package com.startech.mockito.annotation.spies;
+
+public class BookManager {
+	
+	private BookService bookService;
+
+	public BookManager(BookService bookService) {
+		super();
+		this.bookService = bookService;
+	}
+
+}

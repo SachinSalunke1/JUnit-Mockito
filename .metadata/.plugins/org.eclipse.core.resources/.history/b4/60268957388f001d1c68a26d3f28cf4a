@@ -1,0 +1,15 @@
+package com.startech.testdoubles.fake;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.service.BookService;
+import com.startech.service.impl.BookServiceImpl;
+
+public class FakeTest {
+	
+	@Test
+	public void test_fake() {
+		BookService bookService = new BookServiceImpl();
+	}
+
+}

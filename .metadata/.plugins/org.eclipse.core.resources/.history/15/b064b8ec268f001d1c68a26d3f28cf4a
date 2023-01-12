@@ -1,0 +1,5 @@
+package com.startech.entity;
+
+public class Book {
+
+}

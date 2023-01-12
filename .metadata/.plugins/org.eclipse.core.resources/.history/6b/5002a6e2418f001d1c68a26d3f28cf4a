@@ -1,0 +1,6 @@
+package com.startech.service;
+
+public interface EmailService {
+	
+	void sendEmail(String message);
+}

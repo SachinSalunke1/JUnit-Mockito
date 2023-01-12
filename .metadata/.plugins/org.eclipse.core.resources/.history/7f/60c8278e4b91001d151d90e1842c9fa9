@@ -1,0 +1,82 @@
+package com.startech.mockito.annotation.bdd.stubbing.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.stubbing.Book;
+import com.startech.mockito.annotation.stubbing.BookRepository;
+import com.startech.mockito.annotation.stubbing.BookRequest;
+import com.startech.mockito.annotation.stubbing.BookService;
+
+@ExtendWith(MockitoExtension.class)
+public class BehaviorDrivenDevelopmentTestMethods {
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@Test
+	public void test_calculateTotalCostBooks() {
+		List<Integer> bookIds = new ArrayList<>();
+		bookIds.add(101);
+//		bookIds.add(101); // uncomment for while testing Approach 2,3 and 4
+		bookIds.add(102);
+
+		Book book1 = new Book(101, "Spring", 3500.0, LocalDate.now());
+		Book book2 = new Book(102, "HIbernate", 2500.0, LocalDate.now());
+// --------------------Method 1:----when()....thenReturn()..--------------------------
+		// Approach 1:
+//		when(bookRepository.findBookByBookId(101)).thenReturn(book1);
+//		when(bookRepository.findBookByBookId(102)).thenReturn(book2);
+
+		// Approach 2:
+//		when(bookRepository.findBookByBookId(101)).thenReturn(book1);
+//		when(bookRepository.findBookByBookId(101)).thenReturn(book1);
+
+		// Approach 3:
+//		when(bookRepository.findBookByBookId(101)).thenReturn(book1, book1);
+
+		// Approach 4:
+//		when(bookRepository.findBookByBookId(101)).thenReturn(book1).thenReturn(book1);
+
+// --------------------Method 2:----doReturn()....when()..--------------------------
+		doReturn(book1).when(bookRepository).findBookByBookId(101);
+		doReturn(book2).when(bookRepository).findBookByBookId(102);
+
+		double actualCost = bookService.calculateTotalCost(bookIds);
+		assertEquals(6000, actualCost);
+	}
+
+// --------------------Method 3:----test void method :doNothing().....when()--------------------------
+	@Test
+	public void test_saveVoidMethod() {
+		Book book = new Book(101, "Spring", 3500, LocalDate.now());
+
+		// Approach 1 : ----doReturn()....when()..--------------------------
+		doNothing().when(bookRepository).save(book);
+		bookService.addBook(book);
+	}
+
+	@Test
+	public void test_saveVoidMethodWithBookRequest() {
+		BookRequest bookRequest = new BookRequest("Mockito", 599, LocalDate.now());
+		Book book = new Book(101, "Mockito", 599, LocalDate.now());
+		doNothing().when(bookRepository).save(book);
+		bookService.addBook(bookRequest);
+
+	}
+}

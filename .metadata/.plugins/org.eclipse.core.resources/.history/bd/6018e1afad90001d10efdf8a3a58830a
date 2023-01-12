@@ -1,0 +1,5 @@
+package com.startech.mockito.annotation.stubbing.test;
+
+public class StbbingTest_DoReturn_When {
+
+}

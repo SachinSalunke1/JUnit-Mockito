@@ -1,0 +1,18 @@
+package com.startech.mockito.annotation.spies.test;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.spies.BookManager;
+import com.startech.mockito.annotation.spies.BookService;
+
+@ExtendWith(MockitoExtension.class)
+public class SpiesTest {
+	
+	public void test_mockitpSpy() {
+		BookService bookService = Mockito.spy(BookService.class);
+		BookManager bookManager = new BookManager(bookService);
+	}
+
+}

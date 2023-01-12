@@ -1,0 +1,5 @@
+package com.startech.testdoubles.stub;
+
+public class StubBookRepositoryImpl {
+
+}

@@ -1,0 +1,7 @@
+package com.startech.mockito.annotation.behaviorverification;
+
+import java.util.List;
+
+public interface BookRepository {
+	void save(Book book);
+}

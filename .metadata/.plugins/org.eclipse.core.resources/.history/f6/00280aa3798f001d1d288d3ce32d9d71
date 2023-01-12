@@ -1,0 +1,14 @@
+package com.startech.testdoubles.mock;
+
+import com.startech.testdouble.mock.Book;
+import com.startech.testdouble.mock.BookRepository;
+
+public class MockBookRepositoryImpl implements BookRepository{
+
+	@Override
+	public void save(Book book) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

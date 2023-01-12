@@ -1,0 +1,48 @@
+package com.startech.mockito.annotation.argumentmatchers.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.argumentmatchers.Book;
+import com.startech.mockito.annotation.argumentmatchers.BookRepository;
+import com.startech.mockito.annotation.argumentmatchers.BookService;
+
+@ExtendWith(MockitoExtension.class)
+public class ArgumentMatcherTestMethods {
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@Test
+	public void test_updatePrice2() {
+		Book book1 = new Book(101, "HIbernate", 599, LocalDate.now());
+		Book book2 = new Book(101, "HIbernate", 499, LocalDate.now());
+		when(bookRepository.findBookById(any(Integer.class))).thenReturn(book1);
+		bookService.updatePrice(101, 499);
+		verify(bookRepository).save(book2);
+	}
+
+	@Test
+	public void test_invalidUserOfArgumentMatchers() {
+		Book book1 = new Book(101, "HIbernate", 599, LocalDate.now());
+		when(bookRepository.findBookByTitleAndPublishedDate("HIbernate", LocalDate.now())).thenReturn(book1);
+		Book book = bookService.getBookByTitleAndPublishedDate("HIbernate", LocalDate.now());
+		assertEquals("HIbernate", book.getTitle());
+	}
+
+}

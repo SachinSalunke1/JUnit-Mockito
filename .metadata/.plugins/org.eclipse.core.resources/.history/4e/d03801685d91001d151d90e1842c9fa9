@@ -1,0 +1,39 @@
+package com.startech.mockito.annotation.bdd.behaviorverification.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import com.startech.mockito.annotation.bdd.behaviorVerification.Book;
+import com.startech.mockito.annotation.bdd.behaviorVerification.BookRepository;
+import com.startech.mockito.annotation.bdd.behaviorVerification.BookService;
+
+public class BDDBehaviorVerifcationTest {
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Test
+	public void test_updatePrice2() {
+		Book book = new Book(101, "HIbernate", 599, LocalDate.now());
+		when(bookRepository.findBookById(101)).thenReturn(book);
+		bookService.updatePrice(101, 599);
+		verify(bookRepository).findBookById(101);
+		verify(bookRepository).save(null);
+		verifyNoMoreInteractions(bookRepository);
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.startech.service.impl;
+
+import com.startech.service.EmailService;
+
+public class EmailServiceImpl implements EmailService {
+
+}

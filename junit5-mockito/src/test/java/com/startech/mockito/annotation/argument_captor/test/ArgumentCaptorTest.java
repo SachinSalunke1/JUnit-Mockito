@@ -1,0 +1,43 @@
+package com.startech.mockito.annotation.argument_captor.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.argument_captor.Book;
+import com.startech.mockito.annotation.argument_captor.BookRepository;
+import com.startech.mockito.annotation.argument_captor.BookRequest;
+import com.startech.mockito.annotation.argument_captor.BookService;
+
+@ExtendWith(MockitoExtension.class)
+public class ArgumentCaptorTest {
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+	
+	@Captor
+	private ArgumentCaptor<Book> argumentCaptor;
+
+	@Test
+	public void test_addBook() {
+		BookRequest bookRequest = new BookRequest("Spring", 3500, LocalDate.now());
+		//ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);on
+		bookService.addBook(bookRequest);
+		verify(bookRepository).save(argumentCaptor.capture());
+
+		Book book = argumentCaptor.getValue();
+		assertEquals("Spring", book.getTitle());
+	}
+
+}

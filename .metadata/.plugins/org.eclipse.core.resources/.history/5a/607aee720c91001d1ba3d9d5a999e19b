@@ -1,0 +1,29 @@
+package com.startech.mockito.annotation.spies.test;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.spies.BookManager;
+import com.startech.mockito.annotation.spies.BookService;
+import com.startech.mockito.annotation.spies.Book;
+
+@ExtendWith(MockitoExtension.class)
+public class SpiesTest {
+
+	@InjectMocks
+	private BookManager bookManager;
+	
+	@Spy
+	private BookService bookService;
+
+	@Test
+	public void test_mockitoSpy() {
+		Book book1 = new Book(101, "Spring", 3500.0, LocalDate.now());
+	}
+
+}

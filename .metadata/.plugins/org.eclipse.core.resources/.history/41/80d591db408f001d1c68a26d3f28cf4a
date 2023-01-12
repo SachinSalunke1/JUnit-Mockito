@@ -1,0 +1,10 @@
+package com.startech.testdouble.fake;
+
+import java.util.Collection;
+
+public interface BookRepository {
+
+	Book save(Book book);
+
+	Collection<Book> findAll();
+}

@@ -1,0 +1,17 @@
+package com.startech.mockito.annotation.bdd.behaviorVerification;
+
+public class BookService {
+
+	private BookRepository bookRepository;
+
+	public BookService(BookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+
+	public void updatePrice(int bookId, double updatedPrice) {
+		Book book = bookRepository.findBookById(bookId);
+		book.setPrice(updatedPrice);
+		bookRepository.save(book);
+	}
+
+}

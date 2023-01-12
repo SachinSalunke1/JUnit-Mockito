@@ -1,0 +1,7 @@
+package com.startech.testdoubles.fake;
+
+public class BookService {
+	
+	private BookRepository bookrepository
+
+}

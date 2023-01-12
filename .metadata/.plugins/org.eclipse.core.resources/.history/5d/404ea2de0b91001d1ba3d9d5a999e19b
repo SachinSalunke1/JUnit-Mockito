@@ -1,0 +1,17 @@
+package com.startech.mockito.annotation.spies;
+
+public class BookManager {
+	
+	private BookService bookService;
+
+	public BookManager(BookService bookService) {
+		super();
+		this.bookService = bookService;
+	}
+	
+	public double applyDiscountOnBook(int bookId, double discountedRate) {
+		Book book=bookService.findBook(bookId);
+		double discountedPrice = bookService.getAppliedDiscount(book,discountedRate);
+	}
+
+}

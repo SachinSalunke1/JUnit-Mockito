@@ -1,0 +1,12 @@
+package com.startech.testdoubles.dummy;
+
+import com.startech.service.EmailService;
+
+public class DummyEmailRepositoryImpl implements EmailService{
+
+	@Override
+	public void sendEmail(String message) {
+		throw new AssertionError("Method not implemented..");
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.startech.testdoubles.fake;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import com.startech.testdouble.fake.BookRepository;
+import com.startech.testdouble.fake.BookService;
+
+public class FakeTestWithMockito {
+	
+	@Test
+	public void testFake() {
+		BookRepository bookRepository = Mockito.mock(BookRepository.class);
+		BookService bookService = new BookService(bookRepository);
+	}
+
+}

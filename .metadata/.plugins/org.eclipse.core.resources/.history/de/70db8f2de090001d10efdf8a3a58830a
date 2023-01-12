@@ -1,0 +1,8 @@
+package com.startech.mockito.annotation.exception_handling;
+
+public interface BookRepository {
+	
+	void save(Book book);
+
+	Book findBookById(int bookId);
+}

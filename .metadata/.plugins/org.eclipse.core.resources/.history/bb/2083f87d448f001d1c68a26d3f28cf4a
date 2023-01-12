@@ -1,0 +1,13 @@
+package com.startech.testdoubles.dummy;
+
+import org.junit.jupiter.api.Test;
+
+
+public class DummyTestWithoutMockito {
+	
+	@Test
+	public void demoDummy() {
+		
+	}
+
+}

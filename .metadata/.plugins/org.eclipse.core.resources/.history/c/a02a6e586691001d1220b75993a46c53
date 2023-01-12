@@ -1,0 +1,49 @@
+package com.startech.mockito.annotation.argumentmatchers.test;
+
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.atMost;
+import static org.mockito.Mockito.atMostOnce;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.behaviorverification.Book;
+import com.startech.mockito.annotation.behaviorverification.BookRepository;
+import com.startech.mockito.annotation.behaviorverification.BookService;
+import com.startech.mockito.annotation.behaviorverification.BookRequest;
+
+@ExtendWith(MockitoExtension.class)
+public class ArgumentMatcherTestMethods {
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@Test
+	public void test_updatePrice2() {
+		Book book = new Book(101, "HIbernate", 599, LocalDate.now());
+		when(bookRepository.findBookById(101)).thenReturn(book);
+		bookService.updatePrice(101, 599);
+		verify(bookRepository).findBookById(101);
+		verify(bookRepository).save(book);
+		verifyNoMoreInteractions(bookRepository);
+	}
+
+}

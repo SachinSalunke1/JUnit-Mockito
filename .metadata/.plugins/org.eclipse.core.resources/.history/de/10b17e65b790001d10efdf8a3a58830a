@@ -1,0 +1,49 @@
+package com.startech.mockito.annotation.stubbing.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.stubbing.Book;
+import com.startech.mockito.annotation.stubbing.BookRepository;
+import com.startech.mockito.annotation.stubbing.BookService;
+
+@ExtendWith(MockitoExtension.class)
+public class StbbingTest_DoReturn_When {
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@Test
+	public void test_calculateTotalCostBooks() {
+		List<Integer> bookIds = new ArrayList<>();
+		bookIds.add(101);
+		bookIds.add(102);
+
+		Book book1 = new Book(101, "Spring", 3500.0, LocalDate.now());
+		Book book2 = new Book(102, "HIbernate", 2500.0, LocalDate.now());
+
+		when(bookRepository.findBookByBookId(101)).thenReturn(book1);
+		when(bookRepository.findBookByBookId(101)).thenReturn(book1);
+		
+//		doReturn(book1).when(bookRepository).findBookByBookId(101);
+//		doReturn(book2).when(bookRepository).findBookByBookId(102);
+		
+		double actualCost = bookService.calculateTotalCost(bookIds);
+
+		assertEquals(7000, actualCost);
+	}
+}

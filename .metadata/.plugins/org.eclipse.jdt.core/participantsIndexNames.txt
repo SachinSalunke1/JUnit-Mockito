@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+D:\Eclipse Projects\JUnit and Mockito Testing\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1943285176.index
+\junit-mockito\src\main\resources
+D:\Eclipse Projects\JUnit and Mockito Testing\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1319902196.index
+\mockito-juni4\src\main\resources
+D:\Eclipse Projects\JUnit and Mockito Testing\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3371808321.index
+\juni4-mockito\src\main\resources
+D:\Eclipse Projects\JUnit and Mockito Testing\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2679412076.index
+\junit5-mockito\src\main\java

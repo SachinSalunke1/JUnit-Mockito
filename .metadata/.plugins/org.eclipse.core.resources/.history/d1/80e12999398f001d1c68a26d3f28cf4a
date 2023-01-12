@@ -1,0 +1,27 @@
+package com.startech.testdoubles.fake;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.entity.Author;
+import com.startech.entity.Book;
+import com.startech.repository.BookRepository;
+import com.startech.repository.impl.BookRepositoryImpl;
+import com.startech.service.BookService;
+import com.startech.service.impl.BookServiceImpl;
+
+public class FakeTestWithoutMockito {
+
+	@Test
+	public void test_fake() {
+		BookRepository bookRepository = new BookRepositoryImpl();
+		BookService bookService = new BookServiceImpl(bookRepository);
+
+		bookService.save(new Book(1001, "Spring", 3000.0, new Author(101, "ABC", "Good Book"), LocalDate.now()));
+		bookService.save(new Book(1002, "Hibernate", 2500.0, new Author(102, "XYZ", "Nice Book"), LocalDate.now()));
+		
+		
+	}
+
+}

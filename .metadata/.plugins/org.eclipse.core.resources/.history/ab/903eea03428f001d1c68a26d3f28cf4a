@@ -1,0 +1,6 @@
+package com.startech.testdouble.dummy;
+
+public class EmailService {
+	
+	void sendEmail(String message);
+}

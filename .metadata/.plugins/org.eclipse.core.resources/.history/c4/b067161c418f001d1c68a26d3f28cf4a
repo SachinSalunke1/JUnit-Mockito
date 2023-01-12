@@ -1,0 +1,27 @@
+package com.startech.testdouble.fake;
+
+import java.util.Collection;
+
+import com.startech.service.EmailService;
+
+public class BookServiceImpl {
+
+	private BookRepository bookRepository;
+
+	public BookServiceImpl(BookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+
+	public Book save(Book book) {
+		bookRepository.save(book);
+	}
+
+	public Collection<Book> findAll() {
+		return bookRepository.findAll();
+	}
+
+	public int findNumberOfBooks() {
+		return bookRepository.findAll().size();
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.startech.mockito.annotation.support.test;
+
+import org.junit.jupiter.api.Test;
+
+public class AnnotationTest {
+	
+	@Test
+	public void test_createMockUsingAnnotation() {
+
+	}
+}

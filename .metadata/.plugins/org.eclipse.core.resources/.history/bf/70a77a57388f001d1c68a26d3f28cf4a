@@ -1,0 +1,12 @@
+package com.startech.testdoubles.fake;
+
+import org.junit.jupiter.api.Test;
+
+public class FakeTest {
+	
+	@Test
+	public void test_fake() {
+		
+	}
+
+}

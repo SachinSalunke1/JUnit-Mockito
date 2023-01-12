@@ -1,0 +1,6 @@
+package com.startech.mockito.annotation.stubbing.test;
+
+public class StubbingTest {
+	
+
+}

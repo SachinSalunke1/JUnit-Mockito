@@ -1,0 +1,12 @@
+package com.startech.mockito.annotation.argumentmatchers;
+
+import java.time.LocalDate;
+
+public interface BookRepository {
+	
+	void save(Book book);
+
+	Book findBookById(int bookId);
+
+	Book findBookByTitleAndPublishedDate(String title, LocalDate publishedDate);
+}

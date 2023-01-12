@@ -1,0 +1,21 @@
+package com.startech.entity;
+
+import java.time.LocalDate;
+
+public class Book {
+
+	private int bookId;
+	private String title;
+	private double price;
+	private LocalDate publishedOn;
+	
+	public Book(int bookId, String title, double price, LocalDate publishedOn) {
+		super();
+		this.bookId = bookId;
+		this.title = title;
+		this.price = price;
+		this.publishedOn = publishedOn;
+	}
+	
+	
+}

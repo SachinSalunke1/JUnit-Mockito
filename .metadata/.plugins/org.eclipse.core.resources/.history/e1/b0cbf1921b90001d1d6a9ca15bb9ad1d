@@ -1,0 +1,39 @@
+package com.startech.testdoubles.stub;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.testdouble.stub.Book;
+import com.startech.testdouble.stub.BookRepository;
+import com.startech.testdouble.stub.BookService;
+
+public class StubTestWithoutMockito {
+
+	@Test
+	public void test_stubWithoutMockito() {
+		BookRepository bookRepository = new StubBookRepositoryImpl();
+		BookService bookService = new BookService(bookRepository);
+		List<Book> newBooks = bookService.getNewBooksWithAppliedDiscount(10, 7);
+
+		assertEquals(2, newBooks.size());
+		assertEquals(2700, newBooks.get(0).getPrice());
+		assertEquals(2250, newBooks.get(1).getPrice());
+
+	}
+	
+	@Test
+	public void test_stubWithMockito() {
+		BookRepository bookRepository = new StubBookRepositoryImpl();
+		BookService bookService = new BookService(bookRepository);
+		List<Book> newBooks = bookService.getNewBooksWithAppliedDiscount(10, 7);
+
+		assertEquals(2, newBooks.size());
+		assertEquals(2700, newBooks.get(0).getPrice());
+		assertEquals(2250, newBooks.get(1).getPrice());
+
+	}
+
+}

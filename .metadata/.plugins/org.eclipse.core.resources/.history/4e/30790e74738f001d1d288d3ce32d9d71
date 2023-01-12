@@ -1,0 +1,17 @@
+package com.startech.testdoubles.stub;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.testdouble.stub.BookRepository;
+import com.startech.testdouble.stub.BookService;
+
+public class StubTestWithoutMockito {
+
+	@Test
+	public void demoStub() {
+		BookRepository bookRepository = new StubBookRepositoryImpl();
+		BookService bookService = new BookService(bookRepository);
+
+	}
+
+}

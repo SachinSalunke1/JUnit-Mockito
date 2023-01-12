@@ -1,0 +1,12 @@
+package com.startech.mockito.annotation.exception_handling;
+
+import java.util.List;
+
+public class BookService {
+
+	private BookRepository bookRepository;
+
+	public BookService(BookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+}

@@ -1,0 +1,31 @@
+package com.startech.mockito.annotation.exception_handling.test;
+
+import static org.mockito.Mockito.when;
+
+import java.sql.SQLException;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.startech.mockito.annotation.exception_handling.BookRepository;
+import com.startech.mockito.annotation.exception_handling.BookService;
+
+@ExtendWith(MockitoExtension.class)
+public class ExceptionHandlingTestMethods {
+
+	@InjectMocks
+	private BookService bookService;
+
+	@Mock
+	private BookRepository bookRepository;
+
+	@Test
+	public void test_totalPriceOfBooks() throws SQLException {
+		when(bookRepository.findAllBooks()).thenThrow(SQLException.class);
+		double totalPriceOfBooks = bookService.getTotalPriceOfBooks();
+		
+	}
+}

@@ -1,0 +1,12 @@
+package com.startech.repository.impl;
+
+import com.startech.service.EmailService;
+
+public class EmailRepositoryImpl implements EmailService{
+
+	@Override
+	public void sendEmail(String message) {
+		throw new AssertionError("Method not implemented..");
+	}
+
+}

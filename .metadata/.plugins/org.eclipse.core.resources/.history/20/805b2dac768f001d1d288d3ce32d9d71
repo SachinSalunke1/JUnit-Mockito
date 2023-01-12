@@ -1,0 +1,16 @@
+package com.startech.testdoubles.spy;
+
+import org.junit.jupiter.api.Test;
+
+import com.startech.testdouble.spy.BookRepository;
+import com.startech.testdouble.spy.BookService;
+
+public class SpyTestWithoutMockito {
+
+	@Test
+	public void demoSpy() {
+		BookRepository bookRepository = new SpyBookRepositoryImpl();
+		BookService bookService = new BookService(bookRepository);
+	}
+
+}

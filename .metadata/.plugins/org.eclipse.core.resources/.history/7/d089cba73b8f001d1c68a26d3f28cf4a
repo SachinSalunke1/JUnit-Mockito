@@ -1,0 +1,27 @@
+package com.startech.repository.impl;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.startech.entity.Book;
+import com.startech.repository.BookRepository;
+
+public class BookRepositoryImpl implements BookRepository {
+
+	// In memory Database or Hashmap, List
+
+	Map<Integer, Book> bookStore = new HashMap<>();
+
+	@Override
+	public Book save(Book book) {
+		bookStore.put(book.getBookId(), book);
+		return null;
+	}
+
+	@Override
+	public Collection<Book> findAll() {
+		return bookStore.values();
+	}
+
+}
